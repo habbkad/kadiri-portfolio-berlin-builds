@@ -1,61 +1,88 @@
 
+import { Building, Calendar } from "lucide-react";
+
 const ExperienceSection = () => {
   const experiences = [
     {
       title: "Software Developer",
       company: "Codetrain Africa",
       period: "2020 – 2024",
-      description: "Developed full-stack applications and mentored junior developers"
+      description: "Developed full-stack applications and mentored junior developers",
+      highlights: ["Full-stack development", "Team mentorship", "Code reviews"]
     },
     {
       title: "Bootcamp Instructor", 
       company: "Codetrain Africa",
       period: "2020 – 2024",
-      description: "Taught programming fundamentals and web development to aspiring developers"
+      description: "Taught programming fundamentals and web development to aspiring developers",
+      highlights: ["Curriculum development", "Student mentoring", "Technical training"]
     },
     {
       title: "Freelance Developer",
       company: "Independent",
       period: "2020 – 2024", 
-      description: "Built custom web solutions for various clients across different industries"
+      description: "Built custom web solutions for various clients across different industries",
+      highlights: ["Client management", "Custom solutions", "Cross-industry experience"]
     }
   ];
 
   return (
-    <section id="experience" className="py-16 px-6 bg-muted/30">
-      <div className="container max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Experience
+    <section className="section-padding">
+      <div className="container-custom">
+        <div className="text-center mb-16 fade-in">
+          <h2 className="font-bold text-foreground mb-4">
+            Professional Experience
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-blue-600 mx-auto rounded-full"></div>
+          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
+            4+ years of diverse experience in software development and education
+          </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-4">
+            <div key={index} className="flex gap-6 group fade-in-delay" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="flex flex-col items-center">
-                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                <div className="w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform"></div>
                 {index < experiences.length - 1 && (
-                  <div className="w-0.5 h-16 bg-border mt-1"></div>
+                  <div className="w-0.5 h-20 bg-gradient-to-b from-primary to-border mt-2"></div>
                 )}
               </div>
-              <div className="flex-1 pb-4">
-                <div className="bg-card rounded-lg p-4 shadow-lg border border-border/50">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {exp.title}
-                    </h3>
-                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-                      {exp.period}
-                    </span>
+              
+              <div className="flex-1 pb-8">
+                <div className="p-6 rounded-2xl border border-border/50 shadow-lg hover-lift glass-effect group-hover:border-primary/30 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                        {exp.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-primary font-medium">
+                        <Building className="h-4 w-4" />
+                        {exp.company}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground mt-2 lg:mt-0">
+                      <Calendar className="h-4 w-4" />
+                      <span className="text-sm font-medium bg-muted px-3 py-1 rounded-full">
+                        {exp.period}
+                      </span>
+                    </div>
                   </div>
-                  <h4 className="text-primary font-medium mb-2 text-sm">
-                    {exp.company}
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
+                  
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
                     {exp.description}
                   </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {exp.highlights.map((highlight, highlightIndex) => (
+                      <span 
+                        key={highlightIndex}
+                        className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
