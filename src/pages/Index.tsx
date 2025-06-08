@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -32,23 +33,42 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
+      
       <Button
         onClick={toggleTheme}
         variant="outline"
         size="icon"
-        className="fixed top-4 right-4 z-50 bg-background/80 backdrop-blur-sm"
+        className="fixed top-20 right-4 z-40 bg-background/80 backdrop-blur-sm"
       >
         {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
       </Button>
       
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
+      {/* Add pt-16 to account for fixed navbar */}
+      <div className="pt-16">
+        <div id="hero">
+          <HeroSection />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
+        <div id="skills">
+          <SkillsSection />
+        </div>
+        <div id="projects">
+          <ProjectsSection />
+        </div>
+        <div id="experience">
+          <ExperienceSection />
+        </div>
+        <div id="education">
+          <EducationSection />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 };
