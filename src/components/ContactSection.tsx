@@ -18,13 +18,11 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
     toast({
       title: "Message sent!",
       description: "Thank you for your message. I'll get back to you soon.",
     });
     
-    // Reset form
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -36,50 +34,50 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-muted/30">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+    <section id="contact" className="py-16 px-6 bg-muted/30">
+      <div className="container max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-foreground">
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-5">
+            <h3 className="text-xl font-semibold text-foreground">
               Let's work together
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               I'm always interested in new opportunities and exciting projects. 
               Whether you have a question or just want to say hi, feel free to reach out!
             </p>
             
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <a href="mailto:habkad97@gmail.com" className="text-muted-foreground hover:text-primary">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-card border border-border/50">
+                <Mail className="h-4 w-4 text-primary" />
+                <a href="mailto:habkad97@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   habkad97@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Github className="h-5 w-5 text-primary" />
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-card border border-border/50">
+                <Github className="h-4 w-4 text-primary" />
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   GitHub Profile
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Linkedin className="h-5 w-5 text-primary" />
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-card border border-border/50">
+                <Linkedin className="h-4 w-4 text-primary" />
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   LinkedIn Profile
                 </a>
               </div>
             </div>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Send me a message</CardTitle>
+          <Card className="shadow-lg border border-border/50">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg">Send me a message</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -89,6 +87,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="border-border/50"
                 />
                 <Input
                   name="email"
@@ -97,16 +96,18 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="border-border/50"
                 />
                 <Textarea
                   name="message"
                   placeholder="Your message..."
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  className="border-border/50"
                 />
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full shadow-lg">
                   Send Message
                 </Button>
               </form>

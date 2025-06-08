@@ -22,38 +22,38 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 bg-muted/30">
+    <section id="experience" className="py-16 px-6 bg-muted/30">
       <div className="container max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Experience
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-6">
+            <div key={index} className="flex gap-4">
               <div className="flex flex-col items-center">
-                <div className="w-4 h-4 bg-primary rounded-full"></div>
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {index < experiences.length - 1 && (
-                  <div className="w-0.5 h-20 bg-border mt-2"></div>
+                  <div className="w-0.5 h-16 bg-border mt-1"></div>
                 )}
               </div>
-              <div className="flex-1 pb-8">
-                <div className="bg-card rounded-lg p-6 shadow-sm border">
+              <div className="flex-1 pb-4">
+                <div className="bg-card rounded-lg p-4 shadow-lg border border-border/50">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {exp.title}
                     </h3>
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
                       {exp.period}
                     </span>
                   </div>
-                  <h4 className="text-primary font-medium mb-3">
+                  <h4 className="text-primary font-medium mb-2 text-sm">
                     {exp.company}
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     {exp.description}
                   </p>
                 </div>
