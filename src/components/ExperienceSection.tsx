@@ -1,4 +1,3 @@
-
 import { Building, Calendar } from "lucide-react";
 
 const ExperienceSection = () => {
@@ -7,23 +6,46 @@ const ExperienceSection = () => {
       title: "Software Developer",
       company: "Codetrain Africa",
       period: "2020 – 2024",
-      description: "Developed full-stack applications and mentored junior developers",
-      highlights: ["Full-stack development", "Team mentorship", "Code reviews"]
+      description:
+        "Developed full-stack applications and mentored junior developers",
+      highlights: ["Full-stack development", "Team mentorship", "Code reviews"],
     },
     {
-      title: "Bootcamp Instructor", 
+      title: "Bootcamp Instructor",
       company: "Codetrain Africa",
       period: "2020 – 2024",
-      description: "Taught programming fundamentals and web development to aspiring developers",
-      highlights: ["Curriculum development", "Student mentoring", "Technical training"]
+      description:
+        "Taught programming fundamentals and web development to aspiring developers",
+      highlights: [
+        "Curriculum development",
+        "Student mentoring",
+        "Technical training",
+      ],
     },
     {
       title: "Freelance Developer",
-      company: "Independent",
-      period: "2020 – 2024", 
-      description: "Built custom web solutions for various clients across different industries",
-      highlights: ["Client management", "Custom solutions", "Cross-industry experience"]
-    }
+      company: "Rewind-bar",
+      period: "2024 – 2025",
+      description:
+        "Built custom web solutions for various clients across different industries",
+      highlights: [
+        "Client management",
+        "Custom solutions",
+        "Cross-industry experience",
+      ],
+    },
+    {
+      title: "Full Stack Developer (Intern)",
+      company: "Kutana Pay",
+      period: "April 2025 – June 2025",
+      description:
+        "Worked on a team to develop a membership system for a Fintech agency",
+      highlights: [
+        "Client management",
+        "Custom solutions",
+        "Cross-industry experience",
+      ],
+    },
   ];
 
   return (
@@ -41,14 +63,18 @@ const ExperienceSection = () => {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="flex gap-6 group fade-in-delay" style={{ animationDelay: `${index * 0.1}s` }}>
+            <div
+              key={index}
+              className="flex gap-6 group fade-in-delay"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="flex flex-col items-center">
                 <div className="w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform"></div>
                 {index < experiences.length - 1 && (
                   <div className="w-0.5 h-20 bg-gradient-to-b from-primary to-border mt-2"></div>
                 )}
               </div>
-              
+
               <div className="flex-1 pb-8">
                 <div className="p-6 rounded-2xl border border-border/50 shadow-lg hover-lift glass-effect group-hover:border-primary/30 transition-all duration-300">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
@@ -68,14 +94,14 @@ const ExperienceSection = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {exp.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     {exp.highlights.map((highlight, highlightIndex) => (
-                      <span 
+                      <span
                         key={highlightIndex}
                         className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium"
                       >

@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Code, Server, Database, Wrench, Users } from "lucide-react";
 
@@ -6,34 +5,42 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       category: "Frontend",
-      skills: ["React", "JavaScript", "HTML", "CSS"],
+      skills: [
+        "React",
+        "React Native",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+        "Next.js",
+      ],
       icon: Code,
-      color: "from-blue-500/20 to-cyan-500/20"
+      color: "from-blue-500/20 to-cyan-500/20",
     },
     {
-      category: "Backend", 
-      skills: ["Node.js", "Express", "REST APIs"],
+      category: "Backend",
+      skills: ["Node.js", "Express", "REST APIs", " GraphQL", "FastAPI", ,],
       icon: Server,
-      color: "from-green-500/20 to-emerald-500/20"
+      color: "from-green-500/20 to-emerald-500/20",
     },
     {
       category: "Databases",
-      skills: ["MongoDB"],
+      skills: ["MongoDB", "PostgreSQL", "Firebase"],
       icon: Database,
-      color: "from-purple-500/20 to-violet-500/20"
+      color: "from-purple-500/20 to-violet-500/20",
     },
     {
       category: "Tools",
-      skills: ["Docker", "Git", "Postman", "CI/CD"],
+      skills: ["Docker", "Git", "Postman", "CI/CD", "Api Dog"],
       icon: Wrench,
-      color: "from-orange-500/20 to-red-500/20"
+      color: "from-orange-500/20 to-red-500/20",
     },
     {
       category: "Soft Skills",
       skills: ["Mentorship", "Collaboration", "Problem-solving"],
       icon: Users,
-      color: "from-pink-500/20 to-rose-500/20"
-    }
+      color: "from-pink-500/20 to-rose-500/20",
+    },
   ];
 
   return (
@@ -53,8 +60,8 @@ const SkillsSection = () => {
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`group relative p-8 rounded-2xl border border-border/50 shadow-lg hover-lift fade-in-delay glass-effect bg-gradient-to-br ${category.color}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -66,12 +73,12 @@ const SkillsSection = () => {
                     {category.category}
                   </h3>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
-                      variant="secondary" 
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
                       className="px-3 py-1.5 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
                     >
                       {skill}
