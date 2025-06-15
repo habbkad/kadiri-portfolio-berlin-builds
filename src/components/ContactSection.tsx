@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,25 +10,40 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    const subject = encodeURIComponent(`Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    const mailtoLink = `mailto:habkad97@gmail.com?subject=${subject}&body=${body}`;
+
+    window.open(mailtoLink, "_blank");
+
+    toast({
+      title: "Mail client opened!",
+      description: "Your default mail app should open with your message.",
+    });
     toast({
       title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you within 24 hours.",
+      description:
+        "Thank you for reaching out. I'll get back to you within 24 hours.",
     });
-    
+
     setFormData({ name: "", email: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -38,38 +52,37 @@ const ContactSection = () => {
       icon: Mail,
       label: "Email",
       value: "habkad97@gmail.com",
-      href: "mailto:habkad97@gmail.com"
+      href: "mailto:habkad97@gmail.com",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Berlin, Germany",
-      href: null
+      href: null,
     },
     {
       icon: Github,
       label: "GitHub",
       value: "View Profile",
-      href: "https://github.com"
+      href: "https://github.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect",
-      href: "https://linkedin.com"
-    }
+      href: "http://www.linkedin.com/in/habib-kadiri-b1237a188",
+    },
   ];
 
   return (
     <section className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-16 fade-in">
-          <h2 className="font-bold text-foreground mb-4">
-            Get In Touch
-          </h2>
+          <h2 className="font-bold text-foreground mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-blue-600 mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Let's discuss opportunities, collaborations, or just have a chat about technology
+            Let's discuss opportunities, collaborations, or just have a chat
+            about technology
           </p>
         </div>
 
@@ -81,11 +94,12 @@ const ContactSection = () => {
                 Let's work together
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm always interested in new opportunities and exciting projects. 
-                Whether you have a question, want to discuss a project, or just want to say hi, feel free to reach out!
+                I'm always interested in new opportunities and exciting
+                projects. Whether you have a question, want to discuss a
+                project, or just want to say hi, feel free to reach out!
               </p>
             </div>
-            
+
             <div className="space-y-4">
               {contactInfo.map((item, index) => {
                 const IconComponent = item.icon;
@@ -95,18 +109,26 @@ const ContactSection = () => {
                       <IconComponent className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground font-medium">{item.label}</p>
-                      <p className="text-foreground font-medium">{item.value}</p>
+                      <p className="text-sm text-muted-foreground font-medium">
+                        {item.label}
+                      </p>
+                      <p className="text-foreground font-medium">
+                        {item.value}
+                      </p>
                     </div>
                   </div>
                 );
 
                 return item.href ? (
-                  <a 
+                  <a
                     key={index}
-                    href={item.href} 
-                    target={item.href.startsWith('http') ? '_blank' : undefined}
-                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      item.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="block"
                   >
                     {content}
@@ -154,8 +176,8 @@ const ContactSection = () => {
                     required
                     className="border-border/50 focus:border-primary transition-colors resize-none"
                   />
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     size="lg"
                     className="w-full group shadow-lg hover:shadow-xl transition-all duration-300"
                   >

@@ -42,7 +42,7 @@ const AboutSection = () => {
               className="group hover-lift glass-effect"
             >
               <a
-                href="www.linkedin.com/in/habib-kadiri-b1237a188"
+                href="http://www.linkedin.com/in/habib-kadiri-b1237a188"
                 target="_blank"
                 rel="noopener noreferrer"
               >
